@@ -5,20 +5,27 @@ import List from './pages/resourceList';
 import Login from './pages/login';
 import Profile from './pages/profile';
 import NotFound from './pages/notFound';
-function App() {
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ResourcesContextProvider} from './context/resourceContext.jsx';
 
+function App() {
+  const resourceHelperClient = new QueryClient();
   return (
     <>
-      <Header />
-      <section className="full-width pl-20 pr-20 h-[calc(100vh-180px)]">
-        <Routes>
-          <Route path="/" element={<List />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </section>
-      <Footer />
+    <QueryClientProvider client={resourceHelperClient}>
+      <ResourcesContextProvider>
+        <Header />
+        <section className="full-width pl-20 pr-20 h-[calc(100vh-180px)] overflow-auto">
+          <Routes>
+            <Route path="/" element={<List />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </section>
+        <Footer />
+        </ResourcesContextProvider>
+      </QueryClientProvider>
     </>
   )
 }
