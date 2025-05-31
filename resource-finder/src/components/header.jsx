@@ -3,9 +3,9 @@ import { formatDate } from '../utils/commonUtils';
 
 export default function Header() {
     return (
-        <header className="full-width h-25 pl-20 pr-20 flex justify-between items-center">
+        <header className="full-width h-25 pl-20 pr-20 flex justify-between items-center border-b border-gray-100/20 mb-8">
             <div className="w-3/6 flex flex-start">
-                <h1 className="text-4xl font-[700]">Resource Helper</h1>
+                <h1 className="text-4xl font-[700]">Rekurso</h1>
                 <p className="text-sm ml-5 mt-4">Find technical learning resource for developers</p>
             </div>
             <div className="w-3/6 flex justify-end">

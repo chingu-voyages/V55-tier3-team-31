@@ -23,7 +23,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </section>
-        <Footer />
+       <Footer />
         </ResourcesContextProvider>
       </QueryClientProvider>
     </>
