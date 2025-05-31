@@ -34,12 +34,6 @@ export default function Search ({fetchResources, isFetchingTags}) {
                 value={searchText}
                 className="rounded pl-2 pr-2 w-full h-10 border border-gray-300" placeholder="Enter keywords from title...." />
             </div>
-            <div className=" w-full mb-7">
-                <p className="text-xl mb-2">Filter by tag</p>
-                <input type="text"
-                onChange={handleSearchTags}
-                className="rounded pl-2 pr-2 w-full h-10 border border-gray-300" placeholder="Enter keywords from title...." />
-            </div>
             <div className="w-full grid grid-flow-col gap-6">
                 <button onClick={searchResource} disabled={isFetchingTags} className="disabled:bg-blue-400 bg-blue-700  h-10 rounded text-white hover:bg-blue-800"> 
                     {
