@@ -6,11 +6,15 @@ import { useResourcesContext } from '../context/resourceContext.jsx';
 export default function SearchResult ({isLoading}) {
     const { filteredResources } = useResourcesContext();
     return (
-        <div className="bg-white border border-gray-300 full-width mb-10 rounded-md p-10 relative min-h-[250px]">
-            {!filteredResources.length > 0 && !isLoading && <div className="rounded border border-dotted h-full w-full flex justify-center items-center">
-                <img src={SearchIcon} alt="Search Resources" />
-                <p className="ml-5 text-gray-400/[70%] text-xl">Start searching  by title or filter</p>
-            </div>}
+<div className="!bg-card/40 full-width mb-10 rounded-md p-10 relative h-full">
+    {!filteredResources.length > 0 && !isLoading && 
+        <div className="absolute inset-4 rounded border-2 border-dashed border-gray-300 flex justify-center items-center">
+            <div className="flex items-center">
+                <img src={SearchIcon} alt="Search Resources" className="w-3xs h-2xs filter brightness-0 invert" />  
+            <p className="ml-5 text-white text-2xl">Start searching by title or filter</p>
+            </div>
+        </div>
+    }
             
             {(isLoading) && <Loader/> }
             {filteredResources?.length > 0 &&  <div className="h-full w-full">
