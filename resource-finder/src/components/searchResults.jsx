@@ -18,17 +18,17 @@ export default function SearchResult ({isLoading}) {
             
             {(isLoading) && <Loader/> }
             {filteredResources?.length > 0 &&  <div className="h-full w-full">
-                <h1 className="text-xl mb-5">Search Results ({filteredResources.length})</h1>
-                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <h1 className="text-3xl mb-5 !font-['Cactus_Classical_Serif',serif]">Search Results ({filteredResources.length})</h1>
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-3 gap-y-6">
                 { filteredResources.map((resource) => (
-                    <div className="w-full border border-gray-300 px-5 py-5 rounded" key={resource.id}>
-                        <a className="text-lg mb-5 text-blue-500 block" href={resource.url} target="_blank">{resource.name}</a>
-                        <p className="text-sm text-gray-20 mb-5">Shared by <span className="font-bold">{resource.author}</span> on  
+                    <div className="w-full px-5 py-5 rounded gap-6 bg-card/80" key={resource.id}>
+                        <a className="text-lg mb-5 text-background block" href={resource.url} target="_blank">{resource.name}</a>
+                        <p className="text-sm text-background/50 mb-5">Shared by <span className="font-bold">{resource.author}</span> on  
                         <span className="font-bold"> {formatDate(resource.createdAt)}</span></p>
                         <div className="flex items-start flex-wrap gap-4">
                         {
                             resource.appliedTagsName.map((tag,i) => (
-                                <div className="px-2 text-md rounded-full bg-gray-100"  key={tag+i}>{tag}</div>
+                                <div className="px-2 text-md rounded-full bg-gray-100 text-background"  key={tag+i}>{tag}</div>
                             ))              
                         }
                         </div>
