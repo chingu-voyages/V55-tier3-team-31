@@ -30,6 +30,8 @@ export const ResourcesContextProvider = ({children}) => {
     const [searchTags, setSearchTags] = useState([]);
     const [tagDetails, setTagDetails] = useState({});
     const [isFetching, setIsFetching] = useState(false);
+    const [hasSearched, setHasSearched] = useState(false); // Add this
+
 
     const loadResources = async () => {
         try {
@@ -54,6 +56,7 @@ export const ResourcesContextProvider = ({children}) => {
             
             setResources(resourcesWithTagNames);
             setTags(tagsResp);
+
             setTagDetails(newTagDetailsMap);
         } catch (error) {
             console.error("Error loading resources:", error);
@@ -75,7 +78,8 @@ export const ResourcesContextProvider = ({children}) => {
             searchText, setSearchText,
             searchTags, setSearchTags,
             tagDetails, setTagDetails,
-            isFetching, setIsFetching
+            isFetching, setIsFetching,
+            hasSearched, setHasSearched
         }}>
             {children}
         </ResourcesContext.Provider>
