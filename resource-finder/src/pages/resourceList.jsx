@@ -6,12 +6,11 @@ import { getAllResources } from '../services/resourceHelperService';
 import { useResourcesContext } from '../context/resourceContext';
 import {handleTagDetails} from '../utils/commonUtils';
 export default function List() {
-    const {isFetching} = useResourcesContext()
 
     return (
         <>
             <Search/>
-            <SearchResult isLoading={isFetching}/>
+            <SearchResult />
         </>
     )
 }
