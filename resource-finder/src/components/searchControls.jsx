@@ -14,6 +14,7 @@ export default function Search() {
     setFilteredResources,
     isFetching,
     setIsFetching,
+    setHasSearched
   } = useResourcesContext();
 
   const handleSearchText = (e) => {
@@ -23,6 +24,7 @@ export default function Search() {
   const searchResource = async () => {
     try {
       setIsFetching(true);
+      setHasSearched(true); // Set to true when search is performed
       const filteredResults = filterBasedOnSearch(
         resources,
         searchText,
@@ -40,6 +42,8 @@ export default function Search() {
   const clearSearch = () => {
     setSearchText("");
     setSearchTags([]);
+    setHasSearched(false); // Reset when clearing search
+
   };
 
   return (
