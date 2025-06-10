@@ -19,7 +19,11 @@ export const ResourcesContext = createContext({
     searchTags:[],
     setSearchTags:() => {},
     isFetching: false,
-    setIsFetching: () => {}
+    setIsFetching: () => {},
+    isUserLoggedIn: false,
+    setIsUserLoggedIn: () => {},
+    loggedInUser: null,
+    setLoggedInUser: () => {},
 });
 
 export const ResourcesContextProvider = ({children}) => {
@@ -30,8 +34,9 @@ export const ResourcesContextProvider = ({children}) => {
     const [searchTags, setSearchTags] = useState([]);
     const [tagDetails, setTagDetails] = useState({});
     const [isFetching, setIsFetching] = useState(false);
-    const [hasSearched, setHasSearched] = useState(false); // Add this
-
+    const [hasSearched, setHasSearched] = useState(false);
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+    const [loggedInUser, setLoggedInUser] = useState(null); 
 
     const loadResources = async () => {
         try {
@@ -41,8 +46,6 @@ export const ResourcesContextProvider = ({children}) => {
             const resourcesResp = resourcesData;
             const tagsResp = tagsData;
             
-            console.log("Resources loaded:", resourcesResp);
-            console.log("Tags loaded:", tagsResp);
             
             // Create tagDetails mapping
             const newTagDetailsMap = {};
@@ -79,7 +82,9 @@ export const ResourcesContextProvider = ({children}) => {
             searchTags, setSearchTags,
             tagDetails, setTagDetails,
             isFetching, setIsFetching,
-            hasSearched, setHasSearched
+            hasSearched, setHasSearched,
+            isUserLoggedIn, setIsUserLoggedIn,
+            loggedInUser, setLoggedInUser
         }}>
             {children}
         </ResourcesContext.Provider>

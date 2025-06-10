@@ -73,6 +73,9 @@ h1 {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
 }
+button {
+  cursor: pointer;
+}
 
 /* Chat animations */
 @keyframes bounce {

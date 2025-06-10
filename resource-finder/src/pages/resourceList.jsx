@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchResult from "../components/searchResults";
 import Search from '../components/searchControls';
 import { useQuery } from '@tanstack/react-query';
