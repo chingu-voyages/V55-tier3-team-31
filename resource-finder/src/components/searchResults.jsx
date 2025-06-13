@@ -4,6 +4,7 @@ import Loader from './loader';
 import { useResourcesContext } from '../context/resourceContext.jsx';
 import { useState, useMemo } from 'react';
 import { filterBasedOnSearch } from '../utils/commonUtils';
+import { likeResource } from '../services/popularService.js';
 
 export default function SearchResult() {
   const {
@@ -13,11 +14,32 @@ export default function SearchResult() {
     isFetching,
     tags,
     hasSearched,
-    resources
+    resources,
+    loggedInUser,
   } = useResourcesContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedTag, setSelectedTag] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const [likedResources, setLikedResources] = useState({}); 
+
+  const toggleLike = (resource) => {
+    if (likedResources[resource.id]) return;
+    setLikedResources((prev) => ({
+      ...prev,
+      [resource.id]: true,
+    }));
+    const modifiedResource = {
+      resource,
+      user :loggedInUser
+    };
+    likeResource(modifiedResource).catch((error) => {
+      console.error('Error liking resource:', error);
+      setLikedResources((prev) => ({
+        ...prev,
+        [resource.id]: false,
+      }));
+    });
+  };
 
   const TAGS_PER_PAGE = 5; 
 
@@ -38,11 +60,11 @@ export default function SearchResult() {
   function handleTagSelect(tag) {
     setSelectedTag(tag);
     setIsDropdownOpen(false);
-    setCurrentPage(0); // Reset to first page
+    setCurrentPage(0); 
     
-    // Apply filtering logic
+   
     if (!tag || tag.id === '1048176100892737618') {
-      // Clear filter - use search text only or show all
+     
       if (searchText) {
         const filtered = filterBasedOnSearch(resources, searchText, []);
         setFilteredResources(filtered);
@@ -50,12 +72,12 @@ export default function SearchResult() {
         setFilteredResources([]);
       }
     } else {
-      // Filter by tag (and search text if present)
+      
       let filtered = resources.filter((resource) =>
         resource.appliedTagsName.includes(tag.tag)
       );
       
-      // Also apply search text filter if present
+      
       if (searchText) {
         filtered = filtered.filter((resource) =>
           resource.name.toLowerCase().includes(searchText.toLowerCase())
@@ -218,7 +240,8 @@ export default function SearchResult() {
         {/* Results grid - only show when there are results */}
         {filteredResources.length > 0 && (
           <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap-x-3 gap-y-6'>
-            {filteredResources.map((resource) => (
+            {filteredResources.map((resource) => {
+          return (
               <div
                 className='w-full px-5 py-5 rounded gap-6 bg-card/80'
                 key={resource.id}
@@ -248,8 +271,23 @@ export default function SearchResult() {
                     </div>
                   ))}
                 </div>
+                <button
+                  className='mt-4 flex items-center gap-2 text-background'
+                  onClick={() => toggleLike(resource)}
+                >
+                  <img
+                    src={
+                      likedResources[resource.id]
+                        ? 'https://cdn-icons-png.flaticon.com/512/833/833472.png' 
+                        : 'https://cdn-icons-png.flaticon.com/512/1077/1077035.png' 
+                    }
+                    alt='Like Icon'
+                    className='w-5 h-5'
+                  />
+                 <span>{ likedResources[resource.id] ? 'Liked' : 'Like'}</span>
+                </button>
               </div>
-            ))}
+            )})}
           </div>
         )}
       </div>

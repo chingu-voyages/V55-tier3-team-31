@@ -4,8 +4,10 @@ import session from "express-session";
 
 import passport from "passport";
 import cors from "cors";
+
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
+import resourceRoutes from "./routes/resource.js";
 
 const corsOptions = {
     origin: (origin, callback) => {
@@ -26,17 +28,22 @@ const corsOptions = {
 import "./auth/passport.js";
 
 const app = express();
-app.use(express.json());
 app.use(cors(corsOptions));
+app.use(express.json());
+
 app.use(session({
-    secret:process.env.SESSION_SECRET,
-    resave:false,
-    saveUninitialized:false
+  secret:process.env.SESSION_SECRET,
+  resave:false,
+  saveUninitialized:false,cookie: {
+    maxAge: 1000 * 60 * 60 * 24, 
+  }
 }))
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(authRoutes);
 app.use(userRoutes);
+app.use(resourceRoutes);
 
 mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log("Mongo DB Connected")

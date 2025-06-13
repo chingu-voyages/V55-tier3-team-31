@@ -6,6 +6,7 @@ import List from './pages/resourceList';
 import Login from './pages/login';
 import Profile from './pages/profile';
 import Recommended from './pages/recommended';
+import Popular from './pages/popular';
 import NotFound from './pages/notFound';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ResourcesContextProvider} from './context/resourceContext.jsx';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/recommended" element={<Recommended />} />
+            <Route path="/popular" element={<Popular />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </section>

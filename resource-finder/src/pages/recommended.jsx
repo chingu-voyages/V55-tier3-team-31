@@ -8,7 +8,17 @@ const Recommended = () => {
   const [recommendedResources, setRecommendedResources] = useState([]);
 
   useEffect(() => {
-    setRecommendedResources(resources)
+    if (!loggedInUser || !loggedInUser.interests?.length) {
+      setRecommendedResources([]);
+      return;
+    }
+    
+    const userInterests = loggedInUser.interests.map(interest => interest.tag);
+    const resourcesWithTags = resources.filter(resource =>
+      resource.appliedTagsName.some(tag => userInterests.includes(tag))
+    );
+
+    setRecommendedResources(resourcesWithTags)
   }, [loggedInUser]);
 
   if (!loggedInUser?.interests?.length) {

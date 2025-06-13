@@ -4,7 +4,10 @@ const userSchema = new mongoose.Schema({
     googleId:String,
     githubId:String,
     name:String,
-    interests:[String],
+    interests:[{
+        id:String,
+        tag:String
+    }],
     email:String,
 })
 
