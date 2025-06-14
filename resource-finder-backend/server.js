@@ -4,7 +4,7 @@ import session from "express-session";
 
 import passport from "passport";
 import cors from "cors";
-
+import MongoStore from 'connect-mongo';
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
 import resourceRoutes from "./routes/resource.js";
@@ -39,11 +39,14 @@ app.use(session({
   resave:false,
   saveUninitialized:false,
   rolling: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+  }),
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7,
     httpOnly: true,
-    secure: false,
-    sameSite:'lax'
+    secure: isProd,
+    sameSite:isProd ? 'none' : 'lax'
   }
 }))
 
