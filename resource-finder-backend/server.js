@@ -13,7 +13,7 @@ const corsOptions = {
     origin: (origin, callback) => {
       const allowedOrigins = [
         'http://localhost:5173',
-        'https://resourcefinder.vercel.app'
+        'https://resourcefinderapp.vercel.app'
       ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
