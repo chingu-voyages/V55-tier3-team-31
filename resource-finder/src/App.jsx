@@ -16,6 +16,7 @@ function App() {
           <Header />
           <RouteComp />
           <Footer />
+          <Chatbot />
        </ChatbotContextProvider>
         </ResourcesContextProvider>
       </QueryClientProvider>
