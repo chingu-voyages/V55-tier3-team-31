@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { updateUserDetails } from '../services/userService';
 import { useResourcesContext } from '../context/resourceContext';
 import Select from 'react-select';
+import Loader from '../components/loader';
 
 const Profile = () => {
   const {loggedInUser, tags} = useResourcesContext();
@@ -113,6 +114,7 @@ const Profile = () => {
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 bg-black/10 shadow-md rounded-lg">
       <h1 className="text-2xl font-bold mb-4">Profile</h1>
+      {!loggedInUser && <Loader/>}
       {!isEditing ? (
         <div>
           <p className="mb-5"><strong className="block">Name:</strong> {userDetails?.name}</p>

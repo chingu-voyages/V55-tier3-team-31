@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { formatDate } from '../utils/commonUtils';
-import { logout } from '../services/authService';
 import { useResourcesContext } from '../context/resourceContext';
 import { getUserDetails } from '../services/userService';
+import { logout } from '../services/authService';
 
-export default function Header() {
+ function Header() {
+    console.log('Header component rendered');
+    const location = useLocation();
     const { setIsUserLoggedIn, loggedInUser, isUserLoggedIn, setLoggedInUser } = useResourcesContext();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const location = useLocation();
     const handleAuthAction = () => {
         if (isUserLoggedIn) {
+            localStorage.removeItem('user');
             logout();
         } else {
             window.location.href = '/login';
@@ -22,9 +24,11 @@ export default function Header() {
             const user = await getUserDetails();
             setIsUserLoggedIn(true);
             setLoggedInUser(user);
+            localStorage.setItem('user', JSON.stringify(user));
         }
         !isUserLoggedIn && fetchUser();
     }, []);
+    
     return (
         <header className="full-width h-25 pl-20 pr-20 flex justify-between items-center border-b border-gray-100/20 mb-8">
             <div className="w-3/6 flex flex-start">
@@ -94,3 +98,5 @@ export default function Header() {
         </header>
     )
 }
+
+export default Header

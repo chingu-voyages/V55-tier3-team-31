@@ -1,6 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-// Assuming apiService.js and utils.js are in appropriate locations (e.g., same directory or ../services, ../utils)
-// You might need to adjust these paths based on your project structure.
 import { addTagNamesToAllResources } from "../utils/commonUtils"; // Placeholder import
 import resourcesData from "../data/resources.json"; // Local JSON data for resources
 import tagsData from "../data/tags.json"; // Local JSON data for tags

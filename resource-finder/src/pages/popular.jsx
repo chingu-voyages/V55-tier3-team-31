@@ -3,15 +3,19 @@ import { Link } from 'react-router-dom';
 import { formatDate } from '../utils/commonUtils';
 import { getPopularResources } from '../services/popularService';
 import { useResourcesContext } from '../context/resourceContext';
+import Loader from '../components/loader';
 
 const Popular = () => {
   const [popularResources, setPopularResources] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { loggedInUser } = useResourcesContext();
   useEffect(() => {
     const fetchPopularResources = async () => {
+      setLoading(true);
         try {
             const resources = await getPopularResources();
             setPopularResources(resources);
+            setLoading(false);
         } catch (error) {
             console.error('Error fetching popular resources:', error);
             setPopularResources([]);
@@ -22,7 +26,9 @@ const Popular = () => {
 
   if (!popularResources.length) {
     return (
-      <div className="text-center text-white mt-10">
+      <>
+      {loading ? (<Loader />) : (<div className="text-center text-white mt-10">
+      
         <p className="text-lg">No popular resources available at the moment.</p>
         <Link
           to="/"
@@ -30,7 +36,8 @@ const Popular = () => {
         >
           Go back to home
         </Link>
-      </div>
+      </div>)}
+      </>
     );
   }
 

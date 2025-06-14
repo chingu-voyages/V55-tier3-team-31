@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useResourcesContext } from '../context/resourceContext';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../utils/commonUtils';
+import Loader from '../components/loader';
 
 const Recommended = () => {
   const { loggedInUser, resources } = useResourcesContext();
   const [recommendedResources, setRecommendedResources] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!loggedInUser || !loggedInUser.interests?.length) {
@@ -19,10 +21,14 @@ const Recommended = () => {
     );
 
     setRecommendedResources(resourcesWithTags)
+
+    setLoading(false);
   }, [loggedInUser]);
 
   if (!loggedInUser?.interests?.length) {
     return (
+      <>
+      {loading ? <Loader/> :
       <div className="text-center text-white mt-10">
         <p className="text-lg">You haven't added any interests yet.</p>
         <Link
@@ -31,7 +37,8 @@ const Recommended = () => {
         >
           Go to Profile Page to add interests
         </Link>
-      </div>
+      </div>}
+      </>
     );
   }
 
