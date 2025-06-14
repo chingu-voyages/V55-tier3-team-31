@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route, useLocation } from 'react-router-dom';
-import List from './pages/resourceList';
-import Login from './pages/login';
-import Profile from './pages/profile';
-import Recommended from './pages/recommended';
-import Popular from './pages/popular';
-import NotFound from './pages/notFound';
+import List from './pages/resourceList.jsx';
+import Login from './pages/login.jsx';
+import Profile from './pages/profile.jsx';
+import Recommended from './pages/recommended.jsx';
+import Popular from './pages/popular.jsx';
+import NotFound from './pages/notFound.jsx';
 import PrivateRoute from './components/privateRoute.jsx';
 
 const RouteComp = () => {
