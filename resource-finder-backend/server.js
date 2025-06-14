@@ -34,8 +34,13 @@ app.use(express.json());
 app.use(session({
   secret:process.env.SESSION_SECRET,
   resave:false,
-  saveUninitialized:false,cookie: {
-    maxAge: 1000 * 60 * 60 * 24, 
+  saveUninitialized:false,
+  rolling: true,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none'  
   }
 }))
 
