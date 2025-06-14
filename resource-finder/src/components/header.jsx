@@ -20,6 +20,7 @@ import { logout } from '../services/authService';
     }
 
     useEffect(() => {
+        console.log('Fetching user details');
         const fetchUser = async () => {
             const user = await getUserDetails();
             setIsUserLoggedIn(true);
