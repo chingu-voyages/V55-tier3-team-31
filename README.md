@@ -1,41 +1,96 @@
-# voyage-tasks
+🔍 Rekurso – Resource Finder Application
+Rekurso is an intuitive and modern web application built to help users discover online resources based on keywords and related tags. It offers personalized recommendations, social engagement through popular resources, and even an integrated AI-powered chat support system.
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+🚀 Live Demo
+Check out the live application here:
+👉 https://resourcefinderapp.vercel.app
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+📸 Screenshots
+<img width="1710" alt="image" src="https://github.com/user-attachments/assets/eff1339f-e52b-486e-bcdc-315dd327896f" />
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+🧠 Features
+🔍 Search Resources: Users can search through a rich list of curated online resources using keywords and tags.
 
-> Own it & Make it your Own!
+🔐 Social Login: Login securely using Google or GitHub accounts.
 
-## Team Documents
+👤 User Profile & Interests: After login, users can edit their profile and add interests.
 
-You may find these helpful as you work together to organize your project.
+🌟 Recommended Resources: Personalized recommendations based on user interests.
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+❤️ Popular Resources: See resources liked by other users.
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+📚 All Resources: Return to the main list of all available resources.
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+💬 AI Chat Support: Integrated Gemini AI helps users with search/filter/navigation assistance.
 
-## Our Team
+🚪 Logout Anytime: User can securely logout whenever they choose.
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
+🛠 Tech Stack
+Frontend
+React.js
 
-- Teammate name #1: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+Tailwind CSS
 
-   ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+Gemini AI API – for contextual chat support
+
+Backend
+Node.js
+
+Express.js
+
+MongoDB
+
+Passport.js – for Google and GitHub authentication
+
+📦 Installation
+Clone the repository and install dependencies:
+
+git clone https://github.com/chingu-voyages/V55-tier3-team-31.git
+cd resource-finder-backend
+npm install
+Set up your environment variables (.env) as required:
+
+.env
+MONGODB_URI=
+PORT=
+SESSION_SECRET=
+GOOGLE_CLIENT_ID=
+GOOGLE_AUTH_API_KEY=
+GITHUB_CLIENT_ID=
+GITHUB_AUTH_API_KEY=
+BACKEND_URL_LOCAL=
+BACKEND_URL_PRODUCTION=
+FRONTEND_URL=
+
+
+Start
+npm run start
+
+cd resource-finder
+
+npm install
+
+.env.development
+VITE_API_URL=
+VITE_CLOUDFLARE_WORKER_URL=
+
+Start
+npm run start
+
+📁 Project Structure
+/resource-finder
+  /components
+  /pages
+  /styles
+/resource-finder-backend
+  /routes
+  /models
+  /config
+
+🙋‍♂️ Contributors
+Dhemmy Hardy
+Prakash
+Jericho
+Rangaraj
+Suraj
+
