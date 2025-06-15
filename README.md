@@ -1,7 +1,7 @@
-🔍 Rekurso – Resource Finder Application
+🔍 # Rekurso – Resource Finder Application
 Rekurso is an intuitive and modern web application built to help users discover online resources based on keywords and related tags. It offers personalized recommendations, social engagement through popular resources, and even an integrated AI-powered chat support system.
 
-🚀 Live Demo
+🚀 # Live Demo
 👉 https://resourcefinderapp.vercel.app
 
 📸 Screenshots
