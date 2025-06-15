@@ -43,14 +43,19 @@ MongoDB
 Passport.js – for Google and GitHub authentication
 
 ## 📦 Installation
+```bash
 Clone the Repository
 git clone https://github.com/chingu-voyages/V55-tier3-team-31.git
+```
 
 ## Backend Setup
+```bash
 cd resource-finder-backend
 npm install
+```
 
 ### Create .env file with:
+```bash
 MONGODB_URI=
 PORT=
 SESSION_SECRET=
@@ -61,25 +66,32 @@ GITHUB_AUTH_API_KEY=
 BACKEND_URL_LOCAL=
 BACKEND_URL_PRODUCTION=
 FRONTEND_URL=
+```
 
 ### Start Backend
+```bash
 npm run start
+```
 
 ## Frontend Setup
+```bash
 cd resource-finder
 npm install
+```
 
 ### Create .env.development file with:
-env
-Copy
-Edit
+```bash
 VITE_API_URL=
 VITE_CLOUDFLARE_WORKER_URL=
+```
 
 ### Start Frontend
+```bash
 npm run start
+```
 
 ## 📁 Project Structure
+```bash
 ### /resource-finder
   /components
   /pages
@@ -89,11 +101,14 @@ npm run start
   /routes
   /models
   /config
+```
 
 ## 🙋‍♂️ Contributors
+```bash
 
 ### Dhemmy Hardy
 ### Prakash
 ### Jericho
 ### Rangaraj
 ### Suraj
+```
