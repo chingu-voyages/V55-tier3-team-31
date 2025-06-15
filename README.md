@@ -1,12 +1,13 @@
-🔍 # Rekurso – Resource Finder Application
+# 🔍 Rekurso – Resource Finder Application
 Rekurso is an intuitive and modern web application built to help users discover online resources based on keywords and related tags. It offers personalized recommendations, social engagement through popular resources, and even an integrated AI-powered chat support system.
 
-🚀 # Live Demo
+## 🚀 Live Demo
 👉 https://resourcefinderapp.vercel.app
 
-📸 Screenshots
+## 📸 Screenshots
 <img width="100%" alt="Rekurso Screenshot" src="https://github.com/user-attachments/assets/eff1339f-e52b-486e-bcdc-315dd327896f" />
-🧠 Features
+
+## 🧠 Features
 🔍 Search Resources: Search through a rich list of curated online resources using keywords and tags.
 
 🔐 Social Login: Login securely using Google or GitHub.
@@ -23,15 +24,16 @@ Rekurso is an intuitive and modern web application built to help users discover 
 
 🚪 Logout Anytime: Securely logout whenever needed.
 
-🛠 Tech Stack
-Frontend
+## 🛠 Tech Stack
+
+### Frontend
 React.js
 
 Tailwind CSS
 
 Gemini AI API – for contextual chat support
 
-Backend
+### Backend
 Node.js
 
 Express.js
@@ -40,22 +42,15 @@ MongoDB
 
 Passport.js – for Google and GitHub authentication
 
-📦 Installation
+## 📦 Installation
 Clone the Repository
-bash
-Copy
-Edit
 git clone https://github.com/chingu-voyages/V55-tier3-team-31.git
-Backend Setup
-bash
-Copy
-Edit
+
+## Backend Setup
 cd resource-finder-backend
 npm install
-Create .env file with:
-env
-Copy
-Edit
+
+### Create .env file with:
 MONGODB_URI=
 PORT=
 SESSION_SECRET=
@@ -66,48 +61,39 @@ GITHUB_AUTH_API_KEY=
 BACKEND_URL_LOCAL=
 BACKEND_URL_PRODUCTION=
 FRONTEND_URL=
-Start Backend
-bash
-Copy
-Edit
+
+### Start Backend
 npm run start
-Frontend Setup
-bash
-Copy
-Edit
+
+## Frontend Setup
 cd resource-finder
 npm install
-Create .env.development file with:
+
+### Create .env.development file with:
 env
 Copy
 Edit
 VITE_API_URL=
 VITE_CLOUDFLARE_WORKER_URL=
-Start Frontend
-bash
-Copy
-Edit
+
+### Start Frontend
 npm run start
-📁 Project Structure
-bash
-Copy
-Edit
-/resource-finder
+
+## 📁 Project Structure
+### /resource-finder
   /components
   /pages
   /styles
 
-/resource-finder-backend
+### /resource-finder-backend
   /routes
   /models
   /config
-🙋‍♂️ Contributors
-Dhemmy Hardy
 
-Prakash
+## 🙋‍♂️ Contributors
 
-Jericho
-
-Rangaraj
-
-Suraj
+### Dhemmy Hardy
+### Prakash
+### Jericho
+### Rangaraj
+### Suraj
