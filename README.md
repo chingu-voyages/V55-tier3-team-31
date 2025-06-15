@@ -5,7 +5,8 @@ Rekurso is an intuitive and modern web application built to help users discover 
 👉 https://resourcefinderapp.vercel.app
 
 ## 📸 Screenshots
-<img width="100%" alt="Rekurso Screenshot" src="https://github.com/user-attachments/assets/eff1339f-e52b-486e-bcdc-315dd327896f" />
+![Uploading image.png…]()
+
 
 ## 🧠 Features
 🔍 Search Resources: Search through a rich list of curated online resources using keywords and tags.
