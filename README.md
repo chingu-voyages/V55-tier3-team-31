@@ -92,12 +92,12 @@ npm run start
 
 ## 📁 Project Structure
 ```bash
-### /resource-finder
+/resource-finder
   /components
   /pages
   /styles
 
-### /resource-finder-backend
+/resource-finder-backend
   /routes
   /models
   /config
@@ -106,9 +106,9 @@ npm run start
 ## 🙋‍♂️ Contributors
 ```bash
 
-### Dhemmy Hardy
-### Prakash
-### Jericho
-### Rangaraj
-### Suraj
+Dhemmy Hardy
+Prakash
+Jericho
+Rangaraj
+Suraj
 ```
